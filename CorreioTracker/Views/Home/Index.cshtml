@@ -1,0 +1,91 @@
+﻿@model TrackingModel
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Home/Index/index.css" />
+</head>
+
+<div class="text-center pb-3" id="main__container">
+    <section id="main__info">
+
+        <div id="main__text">
+            <p id="main__text--aside">O serviço de rastreio do Correios gratuito !</p>
+            <p id="main__text--bottom">~Para te auxiliar com as encomendas~</p>
+        </div>
+
+        <div id="main__tracker">
+            <form id="tracker__form">
+                <label>Número de rastreio (CORREIOS)</label>
+                <input class="form-control" id="tracker__form--input" placeholder="Informe o nome" />
+
+                <input type="submit" value="Pesquisar" class="btn btn-success" id="tracker__form--btn">
+            </form>
+        </div>
+    </section>
+
+    <section id="section__merchan">
+        <div id="merchan__text">
+            <p>Veja as movimentações do seu pacote no correios, e recebe notificações pelo celular</p>
+        </div>
+
+        <div id="merchan__icons">
+            <span>Correios</span>
+        </div>
+    </section>
+
+    <section id="moves">
+
+        @* Status handler *@
+        <ul class="d-flex justify-content-center pt-5" id="moves__status">
+            <li id="stats--posted">
+                Postado
+                <btn class="btn btn-success"></btn>
+            </li>
+
+            <li id="stats--clrdbycstm">
+                Liberado Alfandêga
+                <btn class="btn btn-success"></btn>
+            </li>
+
+            <li id="stats--path">
+                A caminho
+                <btn class="btn btn-success"></btn>
+            </li>
+
+            <li id="stats--delivered">
+                Entregue
+                <btn class="btn btn-success"></btn>
+            </li>
+        </ul>
+
+        @* Table of movements track *@
+        <table id="moves__info" class="table rounded shadow-lg border-success" hidden>
+            <thead id="moves__head">
+                <tr class="btn-success">
+                    <td>Hora</td>
+                    <td>Informação</td>
+                </tr>
+            </thead>
+            <tbody id="moves__body">
+            </tbody>
+            <tr class="moves__info--card" hidden>
+                <td class="move__hour">#HOUR</td>
+                <td class="move__information">#INFORMATION</td>
+            </tr>
+        </table>
+    </section>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/js/Home/Index/main.js"></script>
+
+    <script>
+        $(document).ready(function ()
+        {
+            const controller = new Controller()
+        })
+    </script>
+}
